@@ -23,6 +23,7 @@ package server.quest.actions;
 
 import client.MapleCharacter;
 import client.MapleClient;
+import client.inventory.Equip;
 import client.inventory.Item;
 import client.inventory.MapleInventory;
 import client.inventory.MapleInventoryType;
@@ -151,8 +152,18 @@ public class ItemAction extends MapleQuestAction {
                         chr.announce(MaplePacketCreator.getShowItemGain(iPair.getLeft(), (short) iPair.getRight().shortValue(), true));
                 }
                 
+                MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
                 for(Pair<Integer, Integer> iPair: giveItem) {
-                        MapleInventoryManipulator.addById(chr.getClient(), iPair.getLeft(), (short) iPair.getRight().shortValue(), "", -1);
+                        MapleClient c = chr.getClient();
+                        int id = iPair.getLeft();
+                        short quantity = iPair.getRight().shortValue();
+			if (ItemConstants.getInventoryType(id) == MapleInventoryType.EQUIP) {
+                                Item item = ii.getEquipById(id);
+                                MapleInventoryManipulator.addFromDrop(c, ii.randomizeStats((Equip) item), false, -1);
+			} else {
+                                Item item = new Item(id, (short) 0, quantity, -1);
+				MapleInventoryManipulator.addFromDrop(c, item, false, -1);
+			}
                         chr.announce(MaplePacketCreator.getShowItemGain(iPair.getLeft(), (short) iPair.getRight().shortValue(), true));
                 }
 	}
