@@ -23,6 +23,7 @@ package server.quest.actions;
 
 import client.MapleCharacter;
 import client.MapleClient;
+import client.inventory.Equip;
 import client.inventory.Item;
 import client.inventory.MapleInventoryType;
 import constants.inventory.ItemConstants;
@@ -153,10 +154,18 @@ public class ItemAction extends MapleQuestAction {
                         chr.announce(MaplePacketCreator.getShowItemGain(itemid, (short) count, true));
                 }
                 
+                MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
                 for(ItemData iEntry: giveItem) {
                         int itemid = iEntry.getId(), count = iEntry.getCount(), period = iEntry.getPeriod();    // thanks Vcoc for noticing quest milestone item not getting removed from inventory after a while
-                        
-                        MapleInventoryManipulator.addById(chr.getClient(), itemid, (short) count, "", -1, period > 0 ? (System.currentTimeMillis() + period * 60 * 1000) : -1);
+
+                        MapleClient c = chr.getClient();
+			if (ItemConstants.getInventoryType(itemid) == MapleInventoryType.EQUIP) {
+                                Item item = ii.getEquipById(itemid);
+                                MapleInventoryManipulator.addFromDrop(c, ii.randomizeStats((Equip) item), false, -1);
+			} else {
+                                Item item = new Item(itemid, (short) 0, (short) count, -1);
+				MapleInventoryManipulator.addFromDrop(c, item, false, -1);
+			}
                         chr.announce(MaplePacketCreator.getShowItemGain(itemid, (short) count, true));
                 }
 	}
