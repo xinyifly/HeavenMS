@@ -57,7 +57,7 @@ public class ServerConstants {
     
     
     //Server Flags
-    public static final boolean USE_CUSTOM_KEYSET = true;           //Enables auto-setup of the HeavenMS's custom keybindings when creating characters.
+    public static final boolean USE_CUSTOM_KEYSET = false;          //Enables auto-setup of the HeavenMS's custom keybindings when creating characters.
     public static final boolean USE_DEBUG = false;                  //Will enable some text prints on the client, oriented for debugging purposes.
     public static final boolean USE_DEBUG_SHOW_INFO_EQPEXP = false; //Prints on the cmd all equip exp gain info.
     public static       boolean USE_DEBUG_SHOW_RCVD_PACKET = false; //Prints on the cmd all received packet ids.
@@ -108,8 +108,8 @@ public class ServerConstants {
     public static final boolean USE_BUFF_EVERLASTING = false;       //Every applied buff on players holds expiration time so high it'd be considered permanent. Suggestion thanks to Vcoc.
     public static final boolean USE_MULTIPLE_SAME_EQUIP_DROP = true;//Enables multiple drops by mobs of the same equipment, number of possible drops based on the quantities provided at the drop data.
     public static final boolean USE_BANISHABLE_TOWN_SCROLL = true;  //Enables town scrolls to act as if it's a "player banish", rendering the antibanish scroll effect available.
-    public static final boolean USE_ENABLE_FULL_RESPAWN = true;     //At respawn task, always respawn missing mobs when they're available. Spawn count doesn't depend on how many players are currently there.
-    public static final boolean USE_ENABLE_CHAT_LOG = false;        //Write in-game chat to log
+    public static final boolean USE_ENABLE_FULL_RESPAWN = false;    //At respawn task, always respawn missing mobs when they're available. Spawn count doesn't depend on how many players are currently there.
+    public static final boolean USE_ENABLE_CHAT_LOG = true;         //Write in-game chat to log
     public static final boolean USE_REBIRTH_SYSTEM = false;         //Flag to enable/disable rebirth system
     public static final boolean USE_MAP_OWNERSHIP_SYSTEM = true;    //Flag to enable/disable map ownership system
     public static final boolean USE_FISHING_SYSTEM = true;          //Flag to enable/disable fishing system
@@ -154,7 +154,7 @@ public class ServerConstants {
     public static final double PQ_BONUS_EXP_RATE = 0.5;             //Rate for the PQ exp reward.
     
     //Miscellaneous Configuration
-    public static String TIMEZONE = "GMT-3";
+    public static String TIMEZONE = "GMT+0";
     public static boolean USE_DISPLAY_NUMBERS_WITH_COMMA = true;        //Enforce comma on displayed strings (use this when USE_UNITPRICE_WITH_COMMA is active and you still want to display comma-separated values).
     public static boolean USE_UNITPRICE_WITH_COMMA = true;              //Set this accordingly with the layout of the unitPrices on Item.wz XML's, whether it's using commas or dots to represent fractions.
     public static final byte MIN_UNDERLEVEL_TO_EXP_GAIN = 20;           //Characters are unable to get EXP from a mob if their level are under this threshold, only if "USE_ENFORCE_MOB_LEVEL_RANGE" is enabled. For bosses, this attribute is doubled.
@@ -192,7 +192,7 @@ public class ServerConstants {
     public static final boolean USE_PERFECT_SCROLLING = true;   //Scrolls doesn't use slots upon failure.
     public static final boolean USE_ENHANCED_CHSCROLL = false;  //Equips even more powerful with chaos upgrade.
     public static final boolean USE_ENHANCED_CRAFTING = false;  //Apply chaos scroll on every equip crafted.
-    public static final boolean USE_ENHANCED_CLNSLATE = true;   //Clean slates can be applied to recover successfully used slots as well.
+    public static final boolean USE_ENHANCED_CLNSLATE = false;  //Clean slates can be applied to recover successfully used slots as well.
     public static final int SCROLL_CHANCE_RATE = 1;             //Number of rolls for success on a scroll, set 1 for default.
     public static final int CHSCROLL_STAT_RATE = 1;             //Number of rolls of stat upgrade on a successfully applied chaos scroll, set 1 for default.
     public static final int CHSCROLL_STAT_RANGE = 5;            //Stat upgrade range (-N, N) on chaos scrolls.
@@ -204,7 +204,7 @@ public class ServerConstants {
     
     //Other Skills Configuration
     public static final boolean USE_FULL_ARAN_SKILLSET = false; //Enables starter availability to all Aran job skills. Suggestion thanks to Masterrulax.
-    public static final boolean USE_FAST_REUSE_HERO_WILL = true;//Greatly reduce cooldown on Hero's Will.
+    public static final boolean USE_FAST_REUSE_HERO_WILL = false;//Greatly reduce cooldown on Hero's Will.
     public static final boolean USE_ANTI_IMMUNITY_CRASH = true; //Crash skills additionally removes the mob's invincibility buffs. Suggestion thanks to Celestial.
     public static final boolean USE_UNDISPEL_HOLY_SHIELD = true;//Holy shield buff also prevents players from suffering dispel from mobs.
     
@@ -238,7 +238,7 @@ public class ServerConstants {
     public static final boolean USE_SPIKES_AVOID_BANISH = true; //Shoes equipped with spikes prevents mobs from banishing wearer.
     public static final int MAX_EQUIPMNT_LVLUP_STAT_UP = 10000; //Max stat upgrade an equipment can have on a levelup.
     public static final int MAX_EQUIPMNT_STAT = 32767;          //Max stat on an equipment by leveling up.
-    public static final int USE_EQUIPMNT_LVLUP = 7;             //All equips lvlup at max level of N, set 1 to disable.
+    public static final int USE_EQUIPMNT_LVLUP = 1;             //All equips lvlup at max level of N, set 1 to disable.
     
     //Map-Chair Configuration
     public static final boolean USE_CHAIR_EXTRAHEAL = true;     //Enable map chairs to further recover player's HP and MP (player must have the Chair Mastery skill).
