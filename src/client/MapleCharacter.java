@@ -1067,7 +1067,7 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
         }
         
         // thanks xinyifly for finding out missing AP awards (AP Reset can be used as a compass)
-        if (newJob.getId() % 100 >= 1) {
+        if (newJob.getId() % 10 >= 1) {
             if (this.isCygnus()) {
                 gainAp(7, true);
             } else {
