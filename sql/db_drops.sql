@@ -1,6 +1,9 @@
 #THIS SQL MUST BE USED AFTER 'db_database.sql'
 #NEXT SQL 'db_shopupdate.sql' IS OPTIONAL
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 USE `heavenms`;
 
   INSERT IGNORE INTO temp_data (`dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`) VALUES
