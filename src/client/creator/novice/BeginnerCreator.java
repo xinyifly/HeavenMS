@@ -34,6 +34,7 @@ public class BeginnerCreator extends CharacterFactory {
         private static CharacterFactoryRecipe createRecipe(MapleJob job, int level, int map, int top, int bottom, int shoes, int weapon) {
                 CharacterFactoryRecipe recipe = new CharacterFactoryRecipe(job, level, map, top, bottom, shoes, weapon);
                 giveItem(recipe, 4161001, 1, MapleInventoryType.ETC);
+		recipe.setRemainingAp(9);
                 return recipe;
         }
         
