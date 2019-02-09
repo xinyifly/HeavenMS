@@ -190,10 +190,14 @@ public class MapleMonsterInformationProvider {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
+				int chance = rs.getInt("chance");
+				if (chance > 0) {
+				    chance = Math.max(chance, isBoss(monsterId) ? 120000 : 2400);
+				}
 				ret.add(
                                     new MonsterDropEntry(
                                         rs.getInt("itemid"),
-                                        rs.getInt("chance"),
+                                        chance,
                                         rs.getInt("minimum_quantity"),
                                         rs.getInt("maximum_quantity"),
                                         rs.getShort("questid")));
