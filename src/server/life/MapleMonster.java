@@ -558,7 +558,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
                 }
                 Integer holySymbol = attacker.getBuffedValue(MapleBuffStat.HOLY_SYMBOL);
                 if (holySymbol != null) {
-                    personalExp *= 1.0 + (holySymbol.doubleValue() / 100.0);
+                    personalExp *= 1.0 + (holySymbol.doubleValue() / (numExpSharers >= 2 ? 100.0 : 500.0));
                 }
 
                 statiLock.lock();
