@@ -421,9 +421,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         int expSharersLevel = 0;
         for (MapleCharacter mc : members) {
             if (mc.getLevel() >= minThresholdLevel) {    //NO EXP WILL BE GIVEN for those who are underleveled!
-                if (Math.abs(killerLevel - mc.getLevel()) < ServerConstants.MIN_UNDERLEVEL_TO_EXP_LEECH) {
-                    // thanks Thora for pointing out leech level limitation
-                    
+		if (killerLevel - mc.getLevel() <= 5 || getLevel() - mc.getLevel() <= 5) {
                     expSharersLevel += mc.getLevel();
                     expSharers.add(mc);
                 }
