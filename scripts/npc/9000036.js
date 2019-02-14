@@ -47,7 +47,7 @@ function start() {
     
     cm.getPlayer().setCS(true);
     var selStr = "Hello, I am the #bAccessory NPC Crafter#k! My works are widely recognized to be too fine, up to the point at which all my items mimic not only the appearance but too the attributes of them! Everything I charge is some 'ingredients' to make them and, of course, a fee for my services. On what kind of equipment are you interessed?#b";
-    var options = ["Pendants","Face accessories","Eye accessories","Belts & medals","Rings"/*,"#t4032496#"*/];
+    var options = ["Pendants","Face accessories","Eye accessories","Belts & medals","Rings","HP Mask"/*,"#t4032496#"*/];
     for (var i = 0; i < options.length; i++)
         selStr += "\r\n#L" + i + "# " + options[i] + "#l";
     cm.sendSimple(selStr);
@@ -100,6 +100,10 @@ function action(mode, type, selection) {
             for (var i = 0; i < items.length; i++)
                 selStr += "\r\n#L" + i + "##t" + items[i] + "##b";
             
+	}else if (selection == 5) { //hp mask
+	    cm.gainHPMask();
+            cm.dispose();
+            return;
         }/*else if (selection == 5) { //make necklace
             var selStr = "Need to make #t4032496#?#b";
             items = [4032496];
