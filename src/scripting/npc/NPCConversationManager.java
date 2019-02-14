@@ -54,9 +54,11 @@ import client.MapleSkinColor;
 import client.MapleStat;
 import client.Skill;
 import client.SkillFactory;
+import client.inventory.Equip;
 import client.inventory.Item;
 import client.inventory.ItemFactory;
 import client.inventory.MaplePet;
+import client.inventory.manipulator.MapleInventoryManipulator;
 import constants.GameConstants;
 import constants.ItemConstants;
 import constants.LanguageConstants;
@@ -621,6 +623,52 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
                 SkillBookEntry sbe = MapleSkillbookInformationProvider.getInstance().getSkillbookAvailability(itemid);
                 return sbe != SkillBookEntry.UNAVAILABLE ? "    Obtainable through #rquestline#k." : "";
         }
+
+	public void gainHPMask() {
+		if (getPlayer().getLevel() < 120) {
+			return;
+		}
+		int rate = 1 + ((getPlayer().getLevel() - 120) / 30);
+
+		int itemid;
+		short hp;
+		short mp;
+
+		if (getPlayer().getJobStyle() == MapleJob.WARRIOR || getPlayer().getJobStyle() == MapleJob.BRAWLER) {
+			itemid = 1012110; // Angry Mask
+			hp = 1500;
+			mp = 0;
+		} else if (getPlayer().getJobStyle() == MapleJob.MAGICIAN) {
+			itemid = 1012108; // Smiling Mask
+			hp = 500;
+			mp = 1000;
+		} else {
+			itemid = 1012111; // Sad Mask
+			hp = 1000;
+			mp = 500;
+		}
+
+		MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
+		Item item = ii.getEquipById(itemid);
+		if (item == null) {
+			return;
+		}
+
+		Equip eqp = (Equip)item;
+		eqp.setHp((short) (hp * rate));
+		eqp.setMp((short) (mp * rate));
+		eqp.setAcc((short) 0);
+		eqp.setAvoid((short) 0);
+		eqp.setSpeed((short) 0);
+		eqp.setJump((short) 0);
+		eqp.setUpgradeSlots((byte) 0);
+
+		byte flag = eqp.getFlag();
+		flag |= ItemConstants.UNTRADEABLE;
+		eqp.setFlag(flag);
+
+		MapleInventoryManipulator.addFromDrop(getClient(), (Equip)item, true);
+	}
         
         // By Drago/Dragohe4rt CPQ + WED
         public int cpqCalcAvgLvl(int map) {
