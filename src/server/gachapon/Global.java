@@ -36,6 +36,18 @@ public class Global extends GachaponItems {
 	@Override
 	public int[] getRareItems() {
 		return new int[] {
+                        /* Etcs */
+                        4031824, 4031911, 4031912, 4000421,
+
+                        /* Gloves */
+                        1082149,
+
+                        /* Capes */
+                        1102041, 1102042, 1102084, 1102085,
+
+                        /* Surfboards */
+                        1442057,
+
                         /* Scrolls */
                         2049100, 2340000,
                         
