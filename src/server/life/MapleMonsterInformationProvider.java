@@ -223,6 +223,25 @@ public class MapleMonsterInformationProvider {
 				return ret;
 			}
 		}
+
+		// BOSS NX
+		boolean bySummoning = (
+			monsterId == 8510100	// Bloody Boom
+			|| (monsterId >= 8800003 && monsterId <= 8800010) // Zakum's Arms
+			|| monsterId == 6400004 // Opachu
+			|| monsterId == 6300004 // Pachu
+		);
+		if (isBoss(monsterId) && !bySummoning) {
+			int monsterLevel = MapleLifeFactory.getMonster(monsterId).getLevel();
+			int cardChance = Math.min(Math.max(monsterLevel, 20), 100) * 10000;
+			ret.add(new MonsterDropEntry(4031865, cardChance, 1, 2, (short) 0)); // 100 NX
+			ret.add(new MonsterDropEntry(4031866, cardChance, 1, 2, (short) 0)); // 250 NX
+			if (monsterLevel >= 100) {
+				int leafChance = Math.min(Math.max(monsterLevel - 100, 6), 50) * 20000;
+				ret.add(new MonsterDropEntry(4001126, leafChance, 1, 1, (short) 0)); // Maple Leaf
+			}
+		}
+
 		drops.put(monsterId, ret);
 		return ret;
 	}
