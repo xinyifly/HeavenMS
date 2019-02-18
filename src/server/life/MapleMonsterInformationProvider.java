@@ -228,6 +228,19 @@ public class MapleMonsterInformationProvider {
 				return ret;
 			}
 		}
+
+		// BOSS NX
+		if (isBossFinal(monsterId)) {
+			int monsterLevel = MapleLifeFactory.getMonster(monsterId).getLevel();
+			int cardChance = Math.min(Math.max(monsterLevel, 20), 100) * 10000;
+			ret.add(new MonsterDropEntry(4031865, cardChance, 1, 2, (short) 0)); // 100 NX
+			ret.add(new MonsterDropEntry(4031866, cardChance, 1, 2, (short) 0)); // 250 NX
+			if (monsterLevel >= 100) {
+				int leafChance = Math.min(Math.max(monsterLevel - 100, 6), 50) * 20000;
+				ret.add(new MonsterDropEntry(4001126, leafChance, 1, 1, (short) 0)); // Maple Leaf
+			}
+		}
+
 		drops.put(monsterId, ret);
 		return ret;
 	}
@@ -320,6 +333,18 @@ public class MapleMonsterInformationProvider {
                 }
                 
                 return boss;
+	}
+
+	public boolean isBossFinal(int id) {
+		boolean bySummoning = (
+			id == 8510100	// Bloody Boom
+			|| (id >= 8800003 && id <= 8800010) // Zakum's Arms
+			|| id == 6400004 // Opachu
+			|| id == 6300004 // Pachu
+			|| id == 8500003 // High Darkstar
+			|| id == 8500004 // Low Darkstar
+		);
+		return isBoss(id) && !bySummoning;
 	}
         
 	public String getMobNameFromId(int id) {
