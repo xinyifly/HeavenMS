@@ -53,7 +53,7 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
 	@Override
 	public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
                 String name = slea.readMapleAsciiString();
-                int job = slea.readInt();
+                int job = slea.readInt(); job = 1; // Disable Knights of Cygnus and Aran
 		int face = slea.readInt();
 
 		int hair = slea.readInt();
