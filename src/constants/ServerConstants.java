@@ -55,7 +55,7 @@ public class ServerConstants {
     
     
     //Server Flags
-    public static final boolean USE_CUSTOM_KEYSET = true;           //Enables auto-setup of the HeavenMS's custom keybindings when creating characters.
+    public static final boolean USE_CUSTOM_KEYSET = false;          //Enables auto-setup of the HeavenMS's custom keybindings when creating characters.
     public static final boolean USE_DEBUG = false;                  //Will enable some text prints on the client, oriented for debugging purposes.
     public static final boolean USE_DEBUG_SHOW_INFO_EQPEXP = false; //Prints on the cmd all equip exp gain info.
     public static       boolean USE_DEBUG_SHOW_RCVD_PACKET = false; //Prints on the cmd all received packet ids.
@@ -102,7 +102,7 @@ public class ServerConstants {
     public static final boolean USE_BUFF_EVERLASTING = false;       //Every applied buff on players holds expiration time so high it'd be considered permanent. Suggestion thanks to Vcoc.
     public static final boolean USE_MULTIPLE_SAME_EQUIP_DROP = true;//Enables multiple drops by mobs of the same equipment, number of possible drops based on the quantities provided at the drop data.
     public static final boolean USE_BANISHABLE_TOWN_SCROLL = true;  //Enables town scrolls to act as if it's a "player banish", rendering the antibanish scroll effect available.
-    public static final boolean USE_ENABLE_FULL_RESPAWN = true;     //At respawn task, always respawn missing mobs when they're available. Spawn count doesn't depend on how many players are currently there.
+    public static final boolean USE_ENABLE_FULL_RESPAWN = false;    //At respawn task, always respawn missing mobs when they're available. Spawn count doesn't depend on how many players are currently there.
     public static final boolean USE_ENABLE_CHAT_LOG = true;         //Write in-game chat to log
     
     //Events/PQs Configuration
@@ -182,7 +182,7 @@ public class ServerConstants {
     public static final boolean USE_PERFECT_SCROLLING = true;   //Scrolls doesn't use slots upon failure.
     public static final boolean USE_ENHANCED_CHSCROLL = false;  //Equips even more powerful with chaos upgrade.
     public static final boolean USE_ENHANCED_CRAFTING = false;  //Apply chaos scroll on every equip crafted.
-    public static final boolean USE_ENHANCED_CLNSLATE = true;   //Clean slates can be applied to recover successfully used slots as well.
+    public static final boolean USE_ENHANCED_CLNSLATE = false;  //Clean slates can be applied to recover successfully used slots as well.
     public static final int SCROLL_CHANCE_RATE = 1;             //Number of rolls for success on a scroll, set 1 for default.
     public static final int CHSCROLL_STAT_RATE = 1;             //Number of rolls of stat upgrade on a successfully applied chaos scroll, set 1 for default.
     public static final int CHSCROLL_STAT_RANGE = 5;            //Stat upgrade range (-N, N) on chaos scrolls.
@@ -194,7 +194,7 @@ public class ServerConstants {
     
     //Other Skills Configuration
     public static final boolean USE_FULL_ARAN_SKILLSET = false; //Enables starter availability to all Aran job skills. Suggestion thanks to Masterrulax.
-    public static final boolean USE_FAST_REUSE_HERO_WILL = true;//Greatly reduce cooldown on Hero's Will.
+    public static final boolean USE_FAST_REUSE_HERO_WILL = false;//Greatly reduce cooldown on Hero's Will.
     public static final boolean USE_ANTI_IMMUNITY_CRASH = true; //Crash skills additionally removes the mob's invincibility buffs. Suggestion thanks to Celestial.
     public static final boolean USE_UNDISPEL_HOLY_SHIELD = true;//Holy shield buff also prevents players from suffering dispel from mobs.
     
