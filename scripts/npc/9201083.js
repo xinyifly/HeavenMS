@@ -21,6 +21,7 @@ function action(mode, type, selection) {
 	[[1082223, "Stormcaster Gloves"], [4031824, "Stormcaster Gloves Forging Manual"]],
 	[[1072344, "Facestompers"], [4031911, "Facestompers Forging Manual"]],
 	[[1072427, "Red Christmas Sock"], [4000421, "Qualified Knitting Ball"]],
+	[[2070016, "Crystal Ilbi Throwing-Stars"], [4031912, "Crystal Ilbi Forging Manual"]],
     ];
 
     if (status == 0) {
