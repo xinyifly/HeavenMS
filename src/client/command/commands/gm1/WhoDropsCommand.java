@@ -56,18 +56,28 @@ public class WhoDropsCommand extends Command {
                 Iterator<Pair<Integer, String>> listIterator = MapleItemInformationProvider.getInstance().getItemDataByName(searchString).iterator();
                 if(listIterator.hasNext()) {
                     int count = 1;
-                    while(listIterator.hasNext() && count <= 3) {
+                    while(listIterator.hasNext() && count <= 30) {
                         Pair<Integer, String> data = listIterator.next();
                         output += "#b" + data.getRight() + "#k is dropped by:\r\n";
                         try {
                             Connection con = DatabaseConnection.getConnection();
-                            PreparedStatement ps = con.prepareStatement("SELECT dropperid FROM drop_data WHERE itemid = ? LIMIT 50");
+                            PreparedStatement ps = con.prepareStatement("SELECT dropperid, chance FROM drop_data WHERE itemid = ? LIMIT 50");
                             ps.setInt(1, data.getLeft());
                             ResultSet rs = ps.executeQuery();
                             while(rs.next()) {
+				int chance = rs.getInt("chance");
+				if (chance <= 0) {
+				    continue;
+				}
+				if (MapleMonsterInformationProvider.getInstance().isBoss(rs.getInt("dropperid"))) {
+				    chance = (int) (Math.sqrt(chance) * 1000);
+				} else if (chance < 90000) {
+				    chance = (int) (Math.sqrt(chance) * 300);
+				}
+                                float expect = (float) 1000000 / chance / (!MapleMonsterInformationProvider.getInstance().isBoss(rs.getInt("dropperid")) ? player.getDropRate() : player.getBossDropRate());
                                 String resultName = MapleMonsterInformationProvider.getInstance().getMobNameFromId(rs.getInt("dropperid"));
                                 if (resultName != null) {
-                                    output += resultName + ", ";
+                                    output += resultName + " (1/" + (int) Math.ceil(expect) + "), ";
                                 }
                             }
                             rs.close();
