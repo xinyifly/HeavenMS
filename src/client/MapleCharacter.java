@@ -5910,10 +5910,12 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
                     this.yellowMessage("You reached level " + level + ". Congratulations! As a token of your success, your inventory has been expanded a little bit.");
                 }            
             }
+        }
+        if (level % 10 == 0) {
             if (ServerConstants.USE_ADD_RATES_BY_LEVEL == true) { //For the rate upgrade
                 revertLastPlayerRates();
                 setPlayerRates();
-                this.yellowMessage("You managed to get level " + level + "! Getting experience and items seems a little easier now, huh?");
+                // this.yellowMessage("You managed to get level " + level + "! Getting experience and items seems a little easier now, huh?");
             }
         }
 
@@ -6041,19 +6043,19 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
     }
     
     public void setPlayerRates() {
-        this.expRate  *=  GameConstants.getPlayerBonusExpRate(this.level / 20);
+        this.expRate  *=  GameConstants.getPlayerBonusExpRate(this.level / 10);
         this.mesoRate *= GameConstants.getPlayerBonusMesoRate(this.level / 20);
         this.dropRate *= GameConstants.getPlayerBonusDropRate(this.level / 20);
     }
 
     public void revertLastPlayerRates() {
-        this.expRate  /=  GameConstants.getPlayerBonusExpRate((this.level - 1) / 20);
+        this.expRate  /=  GameConstants.getPlayerBonusExpRate((this.level - 1) / 10);
         this.mesoRate /= GameConstants.getPlayerBonusMesoRate((this.level - 1) / 20);
         this.dropRate /= GameConstants.getPlayerBonusDropRate((this.level - 1) / 20);
     }
     
     public void revertPlayerRates() {
-        this.expRate  /=  GameConstants.getPlayerBonusExpRate(this.level / 20);
+        this.expRate  /=  GameConstants.getPlayerBonusExpRate(this.level / 10);
         this.mesoRate /= GameConstants.getPlayerBonusMesoRate(this.level / 20);
         this.dropRate /= GameConstants.getPlayerBonusDropRate(this.level / 20);
     }
