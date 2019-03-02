@@ -71,8 +71,10 @@ public class WhoDropsCommand extends Command {
 				}
 				if (MapleMonsterInformationProvider.getInstance().isBoss(rs.getInt("dropperid"))) {
 				    chance = (int) (Math.sqrt(chance) * 1000);
+				    chance = Math.max(chance, 120000);
 				} else if (chance < 90000) {
 				    chance = (int) (Math.sqrt(chance) * 300);
+				    chance = Math.max(chance, 2400);
 				}
                                 float expect = (float) 1000000 / chance / (!MapleMonsterInformationProvider.getInstance().isBoss(rs.getInt("dropperid")) ? player.getDropRate() : player.getBossDropRate());
                                 String resultName = MapleMonsterInformationProvider.getInstance().getMobNameFromId(rs.getInt("dropperid"));

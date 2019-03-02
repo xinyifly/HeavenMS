@@ -196,8 +196,10 @@ public class MapleMonsterInformationProvider {
 				}
 				if (isBoss(monsterId)) {
 				    chance = (int) (Math.sqrt(chance) * 1000);
+				    chance = Math.max(chance, 120000);
 				} else if (chance < 90000) {
 				    chance = (int) (Math.sqrt(chance) * 300);
+				    chance = Math.max(chance, 2400);
 				}
 				ret.add(
                                     new MonsterDropEntry(
