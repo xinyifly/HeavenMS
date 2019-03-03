@@ -7382,7 +7382,7 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
     }
     
     public void resetBattleshipHp() {
-        this.battleshipHp = 400 * getSkillLevel(SkillFactory.getSkill(Corsair.BATTLE_SHIP)) + ((getLevel() - 120) * 200);
+        this.battleshipHp = 4000 * getSkillLevel(SkillFactory.getSkill(Corsair.BATTLE_SHIP)) + ((getLevel() - 120) * 2000);
     }
     
     public void resetEnteredScript() {
