@@ -26,6 +26,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -155,6 +156,9 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
                     c.disconnect(true, false);
                     return;
                 }
+
+		Calendar cal = Calendar.getInstance();
+		FilePrinter.print(FilePrinter.LOAD_CHAR, "Loaded " + player.getName() + " at " + cal.getTime().toString());
 
                 c.setPlayer(player);
                 c.setAccID(player.getAccountID());
