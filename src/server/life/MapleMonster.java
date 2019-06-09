@@ -622,24 +622,6 @@ public class MapleMonster extends AbstractLoadedMapleLife {
             }
         }
         
-        if(!expDist.isEmpty()) {    // locate on world server the partyid of the missing characters
-            World wserv = map.getWorldServer();
-            
-            for (Entry<Integer, Float> ed : expDist.entrySet()) {
-                boolean isKiller = (ed.getKey() == killerId);
-                float xp = ed.getValue();
-                if (isKiller) {
-                    xp += exp2;
-                }
-
-                Integer pID = wserv.getCharacterPartyid(ed.getKey());
-                if (pID != null) {
-                    float pXP = xp + (partyExp.containsKey(pID) ? partyExp.get(pID) : 0);
-                    partyExp.put(pID, pXP);
-                }
-            }
-        }
-        
         int mostDamageCid = this.getHighestDamagerId();
         for (Entry<Integer, Float> party : partyExp.entrySet()) {
             distributeExperienceToParty(party.getKey(), party.getValue(), mostDamageCid, minThresholdLevel, killerLevel, underleveled, partyExpReward);
