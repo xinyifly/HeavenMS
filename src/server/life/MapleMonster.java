@@ -493,17 +493,11 @@ public class MapleMonster extends AbstractLoadedMapleLife {
                 hasMostDamageCid = true;
             }
             
-            if (mc.getLevel() >= minThresholdLevel) {    //NO EXP WILL BE GIVEN for those who are underleveled!
-                if (Math.abs(killerLevel - mc.getLevel()) < ServerConstants.MIN_RANGELEVEL_TO_EXP_LEECH) {
-                    // thanks Thora for pointing out leech level limitation
-                    
-                    if (expParticipantsMaxLevel < mc.getLevel() && participants.contains(mc)) {
-                        expParticipantsMaxLevel = mc.getLevel();
-                    }
-                    expSharers.add(mc);
+            if (canLeechExp(mc, killerLevel)) {
+                if (expParticipantsMaxLevel < mc.getLevel() && participants.contains(mc)) {
+                    expParticipantsMaxLevel = mc.getLevel();
                 }
-            } else {
-                underleveled.add(mc);
+                expSharers.add(mc);
             }
         }
         
@@ -636,6 +630,25 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         
         propagateExperienceGains(personalExpReward, partyExpReward, killerLevel != Integer.MAX_VALUE ? exp2 : 0.0f);
     }
+
+    private boolean canLeechExp(MapleCharacter leecher, int attackerLevel) {
+        if (attackerLevel - leecher.getLevel() > 5 &&
+            getLevel() - leecher.getLevel() > 5) return false;
+
+        if (!leecher.isAlive() || leecher.getMap() != map) return false;
+
+        return true;
+    }
+
+    private int getNumExpSharers(MapleCharacter attacker) {
+        if (attacker.getParty() == null) return 1;
+
+        List<MapleCharacter> expSharers = new LinkedList<>();
+        for (MapleCharacter member: attacker.getPartyMembersOnSameMap()) {
+            if (canLeechExp(member, attacker.getLevel()))expSharers.add(member);
+        }
+        return expSharers.size();
+    }
     
     private float getStatusExpMultiplier(MapleCharacter attacker) {
         float multiplier = 1.0f;
@@ -643,7 +656,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         // thanks Prophecy & Aika for finding out Holy Symbol not being applied on party bonuses
         Integer holySymbol = attacker.getBuffedValue(MapleBuffStat.HOLY_SYMBOL);
         if (holySymbol != null) {
-            multiplier *= (1.0 + (holySymbol.doubleValue() / 100.0));
+            multiplier *= (1.0 + (holySymbol.doubleValue() / (getNumExpSharers(attacker) >= 2 ? 100.0 : 500.0)));
         }
 
         statiLock.lock();
