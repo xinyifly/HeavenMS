@@ -28,6 +28,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -311,6 +312,19 @@ public class MapleMonsterInformationProvider {
         }
 
         return boss;
+    }
+
+    public boolean isBossFinal(int id) {
+        List<Integer> summons = new ArrayList<>(Arrays.asList(new Integer[]{
+            6300004 /*Pachu*/, 6400004 /*Opachu*/,
+            8500003 /*High Darkstar*/, 8500004 /*Low Darkstar*/,
+            8510100 /*Bloody Boom*/
+        }));
+        // Zakum's Arms
+        for (int summon=8800003; summon<=8800010; summon++) {
+            summons.add(summon);
+        }
+        return isBoss(id) && !summons.contains(id);
     }
 
     public String getMobNameFromId(int id) {
