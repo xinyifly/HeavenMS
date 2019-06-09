@@ -48,7 +48,7 @@ public class WhatDropsFromCommand extends Command {
         }
         String monsterName = player.getLastCommandMessage();
         String output = "";
-        int limit = 3;
+        int limit = 30;
         Iterator<Pair<Integer, String>> listIterator = MapleMonsterInformationProvider.getMobsIDsFromName(monsterName).iterator();
         for (int i = 0; i < limit; i++) {
             if(listIterator.hasNext()) {
