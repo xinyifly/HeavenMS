@@ -194,7 +194,7 @@ public class MapleMonsterInformationProvider {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                ret.add(new MonsterDropEntry(rs.getInt("itemid"), rs.getInt("chance"), rs.getInt("minimum_quantity"), rs.getInt("maximum_quantity"), rs.getShort("questid")));
+                ret.add(new MonsterDropEntry(rs.getInt("itemid"), smoothChance(rs.getInt("chance"), monsterId), rs.getInt("minimum_quantity"), rs.getInt("maximum_quantity"), rs.getShort("questid")));
             }
 
             con.close();
@@ -219,6 +219,18 @@ public class MapleMonsterInformationProvider {
         }
         drops.put(monsterId, ret);
         return ret;
+    }
+
+    public int smoothChance(int chance, int dropperid) {
+        if (chance <= 0) return chance;
+        if (isBossFinal(dropperid)) {
+            chance = (int) (Math.sqrt(chance) * 1000);
+            chance = Math.max(chance, 120000);
+        } else if (chance < 90000) {
+            chance = (int) (Math.sqrt(chance) * 300);
+            chance = Math.max(chance, 2400);
+        }
+        return chance;
     }
 
     public final List<Integer> retrieveDropPool(final int monsterId) {  // ignores Quest and Party Quest items
