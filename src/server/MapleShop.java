@@ -198,7 +198,7 @@ public class MapleShop {
             MapleInventoryManipulator.removeFromSlot(c, type, (byte) slot, quantity, false);
             
             MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
-            int recvMesos = ii.getPrice(item.getItemId(), quantity);
+            int recvMesos = ii.getPrice(item.getItemId(), quantity) / 10;
             if (recvMesos > 0) {
                 c.getPlayer().gainMeso(recvMesos, false);
             }
