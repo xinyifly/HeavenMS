@@ -2582,6 +2582,7 @@
           <int name="mastery" value="1"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="2">
           <string name="hs" value="h2"/>
@@ -2590,6 +2591,7 @@
           <int name="mastery" value="1"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="3">
           <string name="hs" value="h3"/>
@@ -2598,6 +2600,7 @@
           <int name="mastery" value="1"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="4">
           <string name="hs" value="h4"/>
@@ -2606,6 +2609,7 @@
           <int name="mastery" value="2"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="5">
           <string name="hs" value="h5"/>
@@ -2614,6 +2618,7 @@
           <int name="mastery" value="2"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="6">
           <string name="hs" value="h6"/>
@@ -2622,6 +2627,7 @@
           <int name="mastery" value="2"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="7">
           <string name="hs" value="h7"/>
@@ -2630,6 +2636,7 @@
           <int name="mastery" value="3"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="8">
           <string name="hs" value="h8"/>
@@ -2638,6 +2645,7 @@
           <int name="mastery" value="3"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="9">
           <string name="hs" value="h9"/>
@@ -2646,6 +2654,7 @@
           <int name="mastery" value="3"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="10">
           <string name="hs" value="h10"/>
@@ -2654,6 +2663,7 @@
           <int name="mastery" value="4"/>
           <int name="prop" value="100"/>
           <int name="time" value="5"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="11">
           <string name="hs" value="h11"/>
@@ -2662,6 +2672,7 @@
           <int name="mastery" value="4"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="12">
           <string name="hs" value="h12"/>
@@ -2670,6 +2681,7 @@
           <int name="mastery" value="4"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="13">
           <string name="hs" value="h13"/>
@@ -2678,6 +2690,7 @@
           <int name="mastery" value="5"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="14">
           <string name="hs" value="h14"/>
@@ -2686,6 +2699,7 @@
           <int name="mastery" value="5"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="15">
           <string name="hs" value="h15"/>
@@ -2694,6 +2708,7 @@
           <int name="mastery" value="5"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="16">
           <string name="hs" value="h16"/>
@@ -2702,6 +2717,7 @@
           <int name="mastery" value="6"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="17">
           <string name="hs" value="h17"/>
@@ -2710,6 +2726,7 @@
           <int name="mastery" value="6"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="18">
           <string name="hs" value="h18"/>
@@ -2718,6 +2735,7 @@
           <int name="mastery" value="6"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="19">
           <string name="hs" value="h19"/>
@@ -2726,6 +2744,7 @@
           <int name="mastery" value="7"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="20">
           <string name="hs" value="h20"/>
@@ -2734,6 +2753,7 @@
           <int name="mastery" value="7"/>
           <int name="prop" value="100"/>
           <int name="time" value="10"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="21">
           <string name="hs" value="h21"/>
@@ -2742,6 +2762,7 @@
           <int name="mastery" value="7"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="22">
           <string name="hs" value="h22"/>
@@ -2750,6 +2771,7 @@
           <int name="mastery" value="8"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="23">
           <string name="hs" value="h23"/>
@@ -2758,6 +2780,7 @@
           <int name="mastery" value="8"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="24">
           <string name="hs" value="h24"/>
@@ -2766,6 +2789,7 @@
           <int name="mastery" value="8"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="25">
           <string name="hs" value="h25"/>
@@ -2774,6 +2798,7 @@
           <int name="mastery" value="9"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="26">
           <string name="hs" value="h26"/>
@@ -2782,6 +2807,7 @@
           <int name="mastery" value="9"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="27">
           <string name="hs" value="h27"/>
@@ -2790,6 +2816,7 @@
           <int name="mastery" value="9"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="28">
           <string name="hs" value="h28"/>
@@ -2798,6 +2825,7 @@
           <int name="mastery" value="10"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="29">
           <string name="hs" value="h29"/>
@@ -2806,6 +2834,7 @@
           <int name="mastery" value="10"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
         <imgdir name="30">
           <string name="hs" value="h30"/>
@@ -2814,6 +2843,7 @@
           <int name="mastery" value="10"/>
           <int name="prop" value="100"/>
           <int name="time" value="15"/>
+          <int name="attackCount" value="2"/>
         </imgdir>
       </imgdir>
       <imgdir name="action">
