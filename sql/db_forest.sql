@@ -19,3 +19,27 @@ INSERT INTO `accountbuffs` VALUES
 (4101004, 'Assassin.HASTE'),
 (4201003, 'Bandit.HASTE'),
 (5121009, 'Buccaneer.SPEED_INFUSION');
+
+CREATE TABLE IF NOT EXISTS `drop_data_forest` (
+  `dropperid` int(11) NOT NULL,
+  `dropper` varchar(45) DEFAULT NULL,
+  `itemid` int(11) NOT NULL DEFAULT 0,
+  `item` varchar(45) DEFAULT NULL,
+  `minimum_quantity` int(11) NOT NULL DEFAULT 1,
+  `maximum_quantity` int(11) NOT NULL DEFAULT 1,
+  `questid` int(11) NOT NULL DEFAULT 0,
+  `chance` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`dropperid`,`itemid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TRIGGER ins_replace_drop_data BEFORE INSERT
+  ON `drop_data_forest` FOR EACH ROW
+  REPLACE INTO `drop_data`
+    SELECT NULL, `dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`
+      FROM `drop_data_forest`;
+
+CREATE TRIGGER upd_replace_drop_data BEFORE UPDATE
+  ON `drop_data_forest` FOR EACH ROW
+  REPLACE INTO `drop_data`
+    SELECT NULL, `dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`
+      FROM `drop_data_forest`;
