@@ -226,9 +226,9 @@ public class MapleMonsterInformationProvider {
         if (isBossFinal(dropperid)) {
             chance = (int) (Math.sqrt(chance) * 1000);
             chance = Math.max(chance, 120000);
-        } else if (chance < 90000) {
-            chance = (int) (Math.sqrt(chance) * 300);
-            chance = Math.max(chance, 2400);
+        } else if (chance < 22500) {
+            chance = (int) (Math.sqrt(chance) * 150);
+            chance = Math.max(chance, 3600);
         }
         return chance;
     }
