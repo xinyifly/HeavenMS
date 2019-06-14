@@ -2026,7 +2026,7 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
 
                 Item mItem = mapitem.getItem();
                 boolean hasSpaceInventory = true;
-                if (mapitem.getItemId() == 4031865 || mapitem.getItemId() == 4031866 || mapitem.getMeso() > 0 || ii.isConsumeOnPickup(mapitem.getItemId()) || (hasSpaceInventory = MapleInventoryManipulator.checkSpace(client, mapitem.getItemId(), mItem.getQuantity(), mItem.getOwner()))) {
+                if (mapitem.getItemId() == 4031865 || mapitem.getItemId() == 4031866 || mapitem.getItemId() == 4001126 || mapitem.getMeso() > 0 || ii.isConsumeOnPickup(mapitem.getItemId()) || (hasSpaceInventory = MapleInventoryManipulator.checkSpace(client, mapitem.getItemId(), mItem.getQuantity(), mItem.getOwner()))) {
                     int mapId = this.getMapId();
                     
                     if ((mapId > 209000000 && mapId < 209000016) || (mapId >= 990000500 && mapId <= 990000502)) {//happyville trees and guild PQ
@@ -2044,9 +2044,9 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
                                 }
                                 
                                 this.getMap().pickItemDrop(pickupPacket, mapitem);
-                            } else if(mapitem.getItemId() == 4031865 || mapitem.getItemId() == 4031866) {
+                            } else if(mapitem.getItemId() == 4031865 || mapitem.getItemId() == 4031866 || mapitem.getItemId() == 4001126) {
                                 // Add NX to account, show effect and make item disappear
-                                int nxGain = mapitem.getItemId() == 4031865 ? 100 : 250;
+                                int nxGain = mapitem.getItemId() == 4031865 ? 100 : (mapitem.getItemId() == 4031866 ? 250 : 5000);
                                 this.getCashShop().gainCash(1, nxGain);
 
                                 showHint("You have earned #e#b" + nxGain + " NX#k#n. (" + this.getCashShop().getCash(1) + " NX)", 300);
@@ -2094,9 +2094,9 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
                                 return;
                             }
                         }
-                    } else if(mapitem.getItemId() == 4031865 || mapitem.getItemId() == 4031866) {
+                    } else if(mapitem.getItemId() == 4031865 || mapitem.getItemId() == 4031866 || mapitem.getItemId() == 4001126) {
                         // Add NX to account, show effect and make item disappear
-                        int nxGain = mapitem.getItemId() == 4031865 ? 100 : 250;
+                        int nxGain = mapitem.getItemId() == 4031865 ? 100 : (mapitem.getItemId() == 4031866 ? 250 : 5000);
                         this.getCashShop().gainCash(1, nxGain);
                         
                         showHint("You have earned #e#b" + nxGain + " NX#k#n. (" + this.getCashShop().getCash(1) + " NX)", 300);
