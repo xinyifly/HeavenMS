@@ -65,7 +65,7 @@ public class WhoDropsCommand extends Command {
                             ps.setInt(1, data.getLeft());
                             ResultSet rs = ps.executeQuery();
                             while(rs.next()) {
-                                int chance = MapleMonsterInformationProvider.getInstance().smoothChance(rs.getInt("chance"), rs.getInt("dropperid"));
+                                int chance = rs.getInt("chance");
                                 if (chance <= 0) continue;
                                 float expect = (float) 1000000 / chance / (!MapleMonsterInformationProvider.getInstance().isBoss(rs.getInt("dropperid")) ? player.getDropRate() : player.getBossDropRate());
                                 String resultName = MapleMonsterInformationProvider.getInstance().getMobNameFromId(rs.getInt("dropperid"));
