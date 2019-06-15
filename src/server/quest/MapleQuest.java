@@ -238,11 +238,30 @@ public class MapleQuest {
     }
     
     public boolean canStart(MapleCharacter chr, int npcid) {
+        return canStart(chr, npcid, true);
+    }
+
+    public boolean canStart(MapleCharacter chr, int npcid, boolean retrieve) {
         if (!canStartQuestByStatus(chr)) {
             return false;
         }
         
         for (MapleQuestRequirement r : startReqs.values()) {
+            if (retrieve) {
+                if (r instanceof MaxLevelRequirement) continue;
+
+                if (r instanceof JobRequirement) {
+                    boolean match = false;
+                    JobRequirement jobR = (JobRequirement) r;
+                    for (Integer job : jobR.getJobs()) {
+			int chrJob = chr.getJob().getId();
+                        match = (chrJob - 1 == job) || (chrJob / 10 * 10) == job || (chrJob / 100 * 100) == job;
+                        if (match) break;
+                    }
+                    if (match || chr.isGmJob()) continue;
+                }
+            }
+
             if (!r.check(chr, npcid)) {
                 return false;
             }
