@@ -5730,6 +5730,47 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
         }
     }
 
+    public List<MapleQuest> getSkippableQuests() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = null;
+        try {
+            con = DatabaseConnection.getConnection();
+            ps = con.prepareStatement("SELECT DISTINCT `quest` FROM `queststatus` WHERE `characterid` IN (SELECT `id` FROM `characters` WHERE `accountid` = ?) AND `characterid` <> ? AND `status` = ?;");
+            ps.setInt(1, accountid);
+            ps.setInt(2, id);
+            ps.setInt(3, MapleQuestStatus.Status.COMPLETED.getId());
+            rs = ps.executeQuery();
+
+            List<MapleQuest> ret = new LinkedList<>();
+            while (rs.next()) {
+                MapleQuest quest = MapleQuest.getInstance(rs.getInt("quest"));
+                MapleQuestStatus mqs = getMapleQuestStatus(quest.getId());
+                if (mqs != null && mqs.getStatus().equals(MapleQuestStatus.Status.STARTED)) {
+                    ret.add(quest);
+                }
+            }
+            return ret;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (ps != null && !ps.isClosed()) {
+                    ps.close();
+                }
+                if (rs != null && !rs.isClosed()) {
+                    rs.close();
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public MapleStatEffect getStatForBuff(MapleBuffStat effect) {
         effLock.lock();
         chrLock.lock();
