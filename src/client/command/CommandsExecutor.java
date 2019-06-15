@@ -212,6 +212,8 @@ public class CommandsExecutor {
         addCommand("bosshp", BossHpCommand.class);
         addCommand("mobhp", MobHpCommand.class);
         addCommand("abuff", ABuffCommand.class);
+        addCommand("retrievequest", QuestRetrieveCommand.class);
+        addCommand("skipquest", QuestSkipCommand.class);
         addCommand("whatdropsfrom", WhatDropsFromCommand.class);
         addCommand("whodrops", WhoDropsCommand.class);
         

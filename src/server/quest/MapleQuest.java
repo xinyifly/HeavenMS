@@ -235,12 +235,31 @@ public class MapleQuest {
         MapleQuestStatus mqs = c.getQuest(this);
         return !(mqs.getStatus() != Status.NOT_STARTED && !(mqs.getStatus() == Status.COMPLETED && repeatable));
     }
-    
+
     public boolean canStart(MapleCharacter c, int npcid) {
+        return canStart(c, npcid, true);
+    }
+
+    public boolean canStart(MapleCharacter c, int npcid, boolean retrieve) {
         if (!canStartWithoutRequirements(c)) {
             return false;
         }
         for (MapleQuestRequirement r : startReqs.values()) {
+            if (retrieve) {
+                if (r instanceof MaxLevelRequirement) continue;
+
+                if (r instanceof JobRequirement) {
+                    boolean match = false;
+                    JobRequirement jobR = (JobRequirement) r;
+                    for (Integer job : jobR.getJobs()) {
+			int chrJob = c.getJob().getId();
+                        match = (chrJob - 1 == job) || (chrJob / 10 * 10) == job || (chrJob / 100 * 100) == job;
+                        if (match) break;
+                    }
+                    if (match || c.isGmJob()) continue;
+                }
+            }
+
             if (!r.check(c, npcid)) {
                 if(r.getType().getType() == MapleQuestRequirementType.INTERVAL.getType()) {
                     c.message("This quest will become available again in approximately " + getIntervalTimeLeft(c, (IntervalRequirement)r) + ".");
