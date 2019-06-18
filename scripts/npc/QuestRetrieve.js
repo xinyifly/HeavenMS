@@ -22,6 +22,7 @@ function action(mode, type, selection) {
         for (var i = 0; i < quests.size(); i++) {
             var quest = quests.get(i);
             var npcid = quest.getNpcRequirement(false);
+            if (quest.getId() >= 1200 && quest.getId() < 1400) continue;
             if (cm.getPlayer().getQuestStatus(quest.getId()) != 0) continue;
             if (quest.canStart(cm.getPlayer(), npcid, false)) continue;
             if (!quest.canStart(cm.getPlayer(), npcid)) continue;
