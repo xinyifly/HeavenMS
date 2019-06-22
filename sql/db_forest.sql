@@ -31,3 +31,15 @@ CREATE TABLE IF NOT EXISTS `drop_data_forest` (
   `chance` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`dropperid`,`itemid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TRIGGER ins_replace_drop_data BEFORE INSERT
+  ON `drop_data_forest` FOR EACH ROW
+  REPLACE INTO `drop_data`
+    SELECT NULL, `dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`
+      FROM `drop_data_forest`;
+
+CREATE TRIGGER upd_replace_drop_data BEFORE UPDATE
+  ON `drop_data_forest` FOR EACH ROW
+  REPLACE INTO `drop_data`
+    SELECT NULL, `dropperid`, `itemid`, `minimum_quantity`, `maximum_quantity`, `questid`, `chance`
+      FROM `drop_data_forest`;
