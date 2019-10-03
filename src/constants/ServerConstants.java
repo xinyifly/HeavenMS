@@ -28,10 +28,10 @@ public class ServerConstants {
     public static final long  COUPON_INTERVAL = 60 * 60 * 1000;	//60 minutes, 3600000.
     public static final long  UPDATE_INTERVAL = 777;            //Dictates the frequency on which the "centralized server time" is updated.
     
-    public static final boolean ENABLE_PIC = false;             //Pick true/false to enable or disable Pic. Delete character requires PIC available.
+    public static final boolean ENABLE_PIC = true;              //Pick true/false to enable or disable Pic. Delete character requires PIC available.
     public static final boolean ENABLE_PIN = false;             //Pick true/false to enable or disable Pin.
     
-    public static final int BYPASS_PIC_EXPIRATION = 20;         //Enables PIC bypass, which will remain active for that account by that client machine for N minutes. Set 0 to disable.
+    public static final int BYPASS_PIC_EXPIRATION = 0;          //Enables PIC bypass, which will remain active for that account by that client machine for N minutes. Set 0 to disable.
     public static final int BYPASS_PIN_EXPIRATION = 15;         //Enables PIN bypass, which will remain active for that account by that client machine for N minutes. Set 0 to disable.
     
     public static final boolean AUTOMATIC_REGISTER = true;      //Automatically register players when they login with a nonexistent username.
