@@ -85449,7 +85449,7 @@
     <int name="Period" value="90"/>
     <int name="Priority" value="8"/>
     <int name="Gender" value="2"/>
-    <int name="OnSale" value="1"/>
+    <int name="OnSale" value="0"/>
     <int name="Class" value="2"/>
   </imgdir>
   <imgdir name="8306">
@@ -85470,7 +85470,7 @@
     <int name="Period" value="90"/>
     <int name="Priority" value="8"/>
     <int name="Gender" value="2"/>
-    <int name="OnSale" value="1"/>
+    <int name="OnSale" value="0"/>
     <int name="Class" value="2"/>
   </imgdir>
   <imgdir name="8308">
