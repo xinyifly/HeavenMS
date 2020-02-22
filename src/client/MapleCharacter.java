@@ -6574,6 +6574,10 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
             } else {
                 addmp += localint_ / 10;
             }
+        } else {
+            if (getJobStyle() == MapleJob.MAGICIAN) {
+                addmp += 25;
+            }
         }
 
         addMaxMPMaxHP(addhp, addmp, true);
