@@ -13,6 +13,8 @@ public class NautilusHarbor extends GachaponItems {
 
     @Override
     public int[] getRareItems() {
-        return new int[] {};
+        return new int[] {
+            1492013, 1482013
+        };
     }
 }

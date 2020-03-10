@@ -13,6 +13,8 @@ public class ShowaSpaFemale extends GachaponItems {
 
     @Override
     public int[] getRareItems() {
-        return new int[] {};
+        return new int[] {
+            1082149, 1432018, 1442057
+        };
     }
 }

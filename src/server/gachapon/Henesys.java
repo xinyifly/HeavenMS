@@ -13,6 +13,8 @@ public class Henesys extends GachaponItems {
 
     @Override
     public int[] getRareItems() {
-        return new int[] {};
+        return new int[] {
+            1452044, 1462039
+        };
     }
 }
