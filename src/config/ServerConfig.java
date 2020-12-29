@@ -70,6 +70,7 @@ public class ServerConfig {
     public boolean USE_FAMILY_SYSTEM;
     public boolean USE_DUEY;
     public boolean USE_RANDOMIZE_HPMP_GAIN;
+    public boolean USE_ADDITIONAL_HPMP_GAIN;
     public boolean USE_STORAGE_ITEM_SORT;
     public boolean USE_ITEM_SORT;
     public boolean USE_ITEM_SORT_BY_NAME;

@@ -6580,6 +6580,21 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
             }
         }
 
+        if (YamlConfig.config.server.USE_ADDITIONAL_HPMP_GAIN) {
+            if (getJobStyle() == MapleJob.BEGINNER) {
+                addhp += 8;
+                addmp += 8;
+            } else if (getJobStyle() == MapleJob.WARRIOR || getJobStyle() == MapleJob.BRAWLER) {
+                addhp += 24;
+            } else if (getJobStyle() == MapleJob.MAGICIAN) {
+                addhp += 8;
+                addmp += 16;
+            } else {
+                addhp += 16;
+                addmp += 8;
+            }
+        }
+
         addMaxMPMaxHP(addhp, addmp, true);
 
         if (takeexp) {
