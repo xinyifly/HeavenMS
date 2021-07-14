@@ -659,7 +659,7 @@ public class AbstractPlayerInteraction {
 				return null;
 			}
 			if (ItemConstants.getInventoryType(id) == MapleInventoryType.EQUIP) {
-				if (randomStats) {
+				if (true || randomStats) {
 					MapleInventoryManipulator.addFromDrop(c, ii.randomizeStats((Equip) item), false, petId);
 				} else {
 					MapleInventoryManipulator.addFromDrop(c, (Equip) item, false, petId);

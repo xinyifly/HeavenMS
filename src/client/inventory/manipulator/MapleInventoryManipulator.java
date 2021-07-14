@@ -143,7 +143,7 @@ public class MapleInventoryManipulator {
                 if(MapleInventoryManipulator.isSandboxItem(nItem)) chr.setHasSandboxItem();
             }
         } else if (quantity == 1) {
-            Item nEquip = ii.getEquipById(itemId);
+            Item nEquip = ii.randomizeStats((Equip) ii.getEquipById(itemId));
             nEquip.setFlag(flag);
             nEquip.setExpiration(expiration);
             if (owner != null) {
