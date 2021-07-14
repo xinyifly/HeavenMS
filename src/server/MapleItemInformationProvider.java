@@ -1117,7 +1117,7 @@ public class MapleItemInformationProvider {
             return 0;
         }
         int lMaxRange = (int) Math.min(Math.ceil(defaultValue * 0.1), maxRange);
-        return (short) ((defaultValue - lMaxRange) + (lMaxRange * 2) + 5);
+        return (short) ((defaultValue + lMaxRange) * 2);
     }
 
     public Equip randomizeStats(Equip equip) {
