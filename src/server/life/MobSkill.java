@@ -49,7 +49,7 @@ public class MobSkill {
 
     private int skillId, skillLevel, mpCon;
     private List<Integer> toSummon = new ArrayList<Integer>();
-    private int spawnEffect, hp, x, y;
+    private int spawnEffect, hp, x, y, count;
     private long duration, cooltime;
     private float prop;
     private Point lt, rb;
@@ -84,6 +84,10 @@ public class MobSkill {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public void setDuration(long duration) {
@@ -336,7 +340,7 @@ public class MobSkill {
                 for (MapleCharacter character : getPlayersInRange(monster)) {
                     if (!character.hasActiveBuff(2321005)) {  // holy shield
                         if (disease.equals(MapleDisease.SEDUCE)) {
-                            if (i < 10) {
+                            if (i < getCount()) {
                                 character.giveDebuff(MapleDisease.SEDUCE, this);
                                 i++;
                             }
@@ -385,6 +389,10 @@ public class MobSkill {
 
     public int getY() {
         return y;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public long getDuration() {
