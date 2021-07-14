@@ -331,13 +331,23 @@ public class MapleMonsterInformationProvider {
         List<Integer> summons = new ArrayList<>(Arrays.asList(new Integer[]{
             6300004 /*Pachu*/, 6400004 /*Opachu*/,
             8500003 /*High Darkstar*/, 8500004 /*Low Darkstar*/,
-            8510100 /*Bloody Boom*/
+            8510100 /*Bloody Boom*/,
+            8810019 /*Red Wyvern*/, 8810020 /*Blue Wyvern*/, 8810021 /*Dark Wyvern*/,
+            8810022 /*Green Cornian*/, 8810023 /*Dark Cornian*/
         }));
         // Zakum's Arms
         for (int summon=8800003; summon<=8800010; summon++) {
             summons.add(summon);
         }
-        return isBoss(id) && !summons.contains(id);
+        Boolean isSummon = summons.contains(id);
+
+        List<Integer> specials = new ArrayList<>(Arrays.asList(new Integer[]{
+            9400120 /*Male Boss*/, 9400121 /*Female Boss*/, 9400122 /*Male Boss*/,
+            9400549 /*Headless Horseman*/, 9400571 /*Headless Horseman*/, 9400575 /*Bigfoot*/
+        }));
+        Boolean isEvent = (id >= 9000000 && !specials.contains(id));
+
+        return isBoss(id) && !isSummon && !isEvent;
     }
 
     public String getMobNameFromId(int id) {
