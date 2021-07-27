@@ -343,7 +343,8 @@ public class MapleMonsterInformationProvider {
 
         List<Integer> specials = new ArrayList<>(Arrays.asList(new Integer[]{
             9400120 /*Male Boss*/, 9400121 /*Female Boss*/, 9400122 /*Male Boss*/,
-            9400549 /*Headless Horseman*/, 9400571 /*Headless Horseman*/, 9400575 /*Bigfoot*/
+            9400549 /*Headless Horseman*/, 9400571 /*Headless Horseman*/, 9400575 /*Bigfoot*/,
+            9420544 /*Furious Targa*/, 9420549 /*Furious Scarlion Boss*/
         }));
         Boolean isEvent = (id >= 9000000 && !specials.contains(id));
 
