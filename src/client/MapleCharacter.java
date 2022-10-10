@@ -3230,7 +3230,7 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
             if (show) {
                 announceExpGain(gain, equip, party, inChat, white);
             }
-            while (exp.get() >= ExpTable.getExpNeededForLevel(level)) {
+            while (exp.get() >= ExpTable.getExpNeededForLevel(level) && getRemainingAp() <= 0) {
                 levelUp(true);
                 if (level == getMaxLevel()) {
                     setExp(0);
