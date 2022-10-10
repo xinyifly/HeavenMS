@@ -7467,7 +7467,7 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     Skill pSkill = SkillFactory.getSkill(rs.getInt("skillid"));
-                    if(pSkill != null)  // edit reported by Shavit (=＾● ⋏ ●＾=), thanks Zein for noticing an NPE here
+                    if(pSkill != null)  // edit reported by Shavit, thanks Zein for noticing an NPE here
                     {
                         ret.skills.put(pSkill, new SkillEntry(rs.getByte("skilllevel"), rs.getInt("masterlevel"), rs.getLong("expiration")));
                     }
