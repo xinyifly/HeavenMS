@@ -83,14 +83,6 @@ function action(mode, type, selection) {
             for (var x = 1132005; x < 1132017; maxEqp++, x++)
                 items[maxEqp] = x;
             
-            for (var x = 1142000; x < 1142102; maxEqp++, x++)
-                items[maxEqp] = x;
-            
-            for (var x = 1142107; x < 1142121; maxEqp++, x++)
-                items[maxEqp] = x;
-		
-            for (var x = 1142122; x < 1142143; maxEqp++, x++)
-                items[maxEqp] = x;		
             selStr += "\r\n#L" + i + "##bTry it!#b";
             
         }else if (selection == 4) { //ring refine
