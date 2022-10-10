@@ -6147,6 +6147,7 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
         }
         if (energybar >= 10000 && energybar < 11000) {
             energybar = 15000;
+            if (YamlConfig.config.server.USE_BUFF_EVERLASTING) return;
             final MapleCharacter chr = this;
             tMan.schedule(new Runnable() {
                 @Override
