@@ -6669,14 +6669,11 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
                     for (byte i = 1; i < 5; i++) {
                         gainSlots(i, 4, true);
                     }
-
-                    this.yellowMessage("You reached level " + level + ". Congratulations! As a token of your success, your inventory has been expanded a little bit.");
                 }            
             }
             if (YamlConfig.config.server.USE_ADD_RATES_BY_LEVEL == true) { //For the rate upgrade
                 revertLastPlayerRates();
                 setPlayerRates();
-                this.yellowMessage("You managed to get level " + level + "! Getting experience and items seems a little easier now, huh?");
             }
         }
 
@@ -6698,7 +6695,6 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
             ThreadManager.getInstance().newTask(r);
         }
 
-        levelUpMessages();
         guildUpdate();
         
         MapleFamilyEntry familyEntry = getFamilyEntry();
