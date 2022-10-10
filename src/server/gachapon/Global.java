@@ -11,7 +11,7 @@ public class Global extends GachaponItems {
     @Override
     public int[] getUncommonItems() {
         return new int[] {
-            2022179, 2022273
+            2022179, 2022273, 2022282
         };
     }
 

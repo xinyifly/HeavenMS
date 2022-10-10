@@ -39,18 +39,18 @@ public class MapleGachapon {
 	public enum Gachapon {
 
 		GLOBAL(-1, -1, -1, -1, new Global()),
-		HENESYS(9100100, 80, 16, 4, new Henesys()),
-		ELLINIA(9100101, 80, 16, 4, new Ellinia()),
-		PERION(9100102, 80, 16, 4, new Perion()),
-		KERNING_CITY(9100103, 80, 16, 4, new KerningCity()),
-		SLEEPYWOOD(9100104, 80, 16, 4, new Sleepywood()),
-		MUSHROOM_SHRINE(9100105, 80, 16, 4, new MushroomShrine()),
-		SHOWA_SPA_MALE(9100106, 80, 16, 4, new ShowaSpaMale()),
-		SHOWA_SPA_FEMALE(9100107, 80, 16, 4, new ShowaSpaFemale()),
-                LUDIBRIUM(9100108, 80, 16, 4, new Ludibrium()),
-		NEW_LEAF_CITY(9100109, 80, 16, 4, new NewLeafCity()),
-                EL_NATH(9100110, 80, 16, 4, new ElNath()),
-		NAUTILUS_HARBOR(9100117, 80, 16, 4, new NautilusHarbor());
+		HENESYS(9100100, 60, 32, 8, new Henesys()),
+		ELLINIA(9100101, 60, 32, 8, new Ellinia()),
+		PERION(9100102, 60, 32, 8, new Perion()),
+		KERNING_CITY(9100103, 60, 32, 8, new KerningCity()),
+		SLEEPYWOOD(9100104, 60, 32, 8, new Sleepywood()),
+		MUSHROOM_SHRINE(9100105, 60, 32, 8, new MushroomShrine()),
+		SHOWA_SPA_MALE(9100106, 60, 32, 8, new ShowaSpaMale()),
+		SHOWA_SPA_FEMALE(9100107, 60, 32, 8, new ShowaSpaFemale()),
+                LUDIBRIUM(9100108, 60, 32, 8, new Ludibrium()),
+		NEW_LEAF_CITY(9100109, 60, 32, 8, new NewLeafCity()),
+                EL_NATH(9100110, 60, 32, 8, new ElNath()),
+		NAUTILUS_HARBOR(9100117, 60, 32, 8, new NautilusHarbor());
                 
 		private static final Gachapon[] values = Gachapon.values();
 
