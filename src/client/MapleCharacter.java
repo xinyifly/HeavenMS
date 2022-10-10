@@ -7668,14 +7668,17 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
             synchronized (quests) {
                 for (MapleQuestStatus qs : getQuests()) {
                     lastQuestProcessed = qs.getQuest().getId();
-                    if (qs.getStatus() == MapleQuestStatus.Status.COMPLETED || qs.getQuest().canComplete(this, null)) {
-                        continue;
-                    }
+
+                    for (int i = 0; i < 5; i++) {
+                        if (qs.getStatus() == MapleQuestStatus.Status.COMPLETED || qs.getQuest().canComplete(this, null)) {
+                            break;
+                        }
                     
-                    if (qs.progress(id)) {
-                        announceUpdateQuest(DelayedQuestUpdate.UPDATE, qs, false);
-                        if (qs.getInfoNumber() > 0) {
-                            announceUpdateQuest(DelayedQuestUpdate.UPDATE, qs, true);
+                        if (qs.progress(id)) {
+                            announceUpdateQuest(DelayedQuestUpdate.UPDATE, qs, false);
+                            if (qs.getInfoNumber() > 0) {
+                                announceUpdateQuest(DelayedQuestUpdate.UPDATE, qs, true);
+                            }
                         }
                     }
                 }
