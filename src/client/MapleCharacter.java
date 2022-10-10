@@ -5046,12 +5046,12 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
         }
         
         World w = getWorldServer();
-        return w.getExpRate() * w.getQuestRate();
+        return getExpRate() * w.getQuestRate();
     }
     
     public int getQuestMesoRate() {
         World w = getWorldServer();
-        return w.getMesoRate() * w.getQuestRate();
+        return getMesoRate() * w.getQuestRate();
     }
     
     public float getCardRate(int itemid) {
