@@ -9365,44 +9365,8 @@
           <int name="count" value="-10"/>
         </imgdir>
         <imgdir name="1">
-          <int name="id" value="4021000"/>
-          <int name="count" value="1"/>
-          <int name="prop" value="1"/>
-        </imgdir>
-        <imgdir name="2">
-          <int name="id" value="4021002"/>
-          <int name="count" value="1"/>
-          <int name="prop" value="1"/>
-        </imgdir>
-        <imgdir name="3">
-          <int name="id" value="4021003"/>
-          <int name="count" value="1"/>
-          <int name="prop" value="1"/>
-        </imgdir>
-        <imgdir name="4">
-          <int name="id" value="4021001"/>
-          <int name="count" value="1"/>
-          <int name="prop" value="1"/>
-        </imgdir>
-        <imgdir name="5">
           <int name="id" value="4021004"/>
           <int name="count" value="1"/>
-          <int name="prop" value="1"/>
-        </imgdir>
-        <imgdir name="6">
-          <int name="id" value="4021005"/>
-          <int name="count" value="1"/>
-          <int name="prop" value="1"/>
-        </imgdir>
-        <imgdir name="7">
-          <int name="id" value="4021006"/>
-          <int name="count" value="1"/>
-          <int name="prop" value="1"/>
-        </imgdir>
-        <imgdir name="8">
-          <int name="id" value="4021007"/>
-          <int name="count" value="1"/>
-          <int name="prop" value="1"/>
         </imgdir>
       </imgdir>
     </imgdir>
