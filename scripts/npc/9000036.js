@@ -116,8 +116,8 @@ function action(mode, type, selection) {
             var matQtySet = [[2, 2, 5, 10], [3, 2], [4, 3], [5, 3, 10], [2, 2, 10, 5]];
             var costSet = [250000, 250000, 300000, 400000, 200000];
         }else if (selectedType == 3) { //belt & medals refine
-            var matSet = [[4001006, 4003005, 4003004], [7777, 7777]];
-            var matQtySet = [[2, 5, 10], [7777, 7777]];
+            var matSet = [[4003005, 4003004], [7777, 7777]];
+            var matQtySet = [[5, 10], [7777, 7777]];
             var costSet = [15000, 7777];
         }else if (selectedType == 4) { //ring refine
             var matSet = [[4003001, 4001344, 4006000], [4003001, 4001344, 4006000], [4021004, 4011008], [4011008, 4001006], [1112413, 2022039], [1112414, 4000176], [4011007, 4021009]];
