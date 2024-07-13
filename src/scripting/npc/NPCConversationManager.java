@@ -419,7 +419,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 
 		MapleGachaponItem item = MapleGachapon.getInstance().process(npc);
 
-		Item itemGained = gainItem(item.getId(), (short) (item.getId() / 10000 == 200 ? 10 : 1), true, true); // For normal potions, make it give 10.
+		Item itemGained = gainItem(item.getId(), (short) (item.getId() / 1000000 == 2 ? 5 : 1), true, true); // For normal potions, make it give 10.
 
 		sendNext("You have obtained a #b#t" + item.getId() + "##k.");
 		
