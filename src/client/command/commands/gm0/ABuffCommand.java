@@ -56,7 +56,7 @@ public class ABuffCommand extends Command {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                int skillLevel = Math.min(rs.getInt("skilllevel"), 20) * Math.min(rs.getInt("level"), 200) / 200;
+                int skillLevel = rs.getInt("skilllevel") * Math.min(rs.getInt("level"), 200) / 200;
                 if (skillLevel > 0) {
                     SkillFactory.getSkill(rs.getInt("skillid")).getEffect(skillLevel).applyTo(player);
                 }
