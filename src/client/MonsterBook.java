@@ -92,6 +92,41 @@ public final class MonsterBook {
         } else {
             c.announce(MaplePacketCreator.addCard(true, cardid, 5));
         }
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = null;
+        Integer accQty = 0;
+        try {
+            con = DatabaseConnection.getConnection();
+            ps = con.prepareStatement("SELECT MAX(`level`) as level FROM `monsterbook` WHERE `cardid` = ? AND `charid` IN (SELECT `id` FROM `characters` WHERE `accountid` = ? AND `id` <> ?)");
+            ps.setInt(1, cardid);
+            ps.setInt(2, c.getPlayer().getAccountID());
+            ps.setInt(3, c.getPlayer().getId());
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                accQty = rs.getInt("level");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (ps != null && !ps.isClosed()) {
+                    ps.close();
+                }
+                if (rs != null && !rs.isClosed()) {
+                    rs.close();
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (qty < accQty) {
+            addCard(c, cardid);
+        }
     }
 
     private void calculateLevel() {
