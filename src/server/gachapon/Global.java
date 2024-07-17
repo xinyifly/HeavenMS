@@ -4,14 +4,14 @@ public class Global extends GachaponItems {
     @Override
     public int[] getCommonItems() {
         return new int[] {
-            2000004, 2000005
+            2000004
         };
     }
 
     @Override
     public int[] getUncommonItems() {
         return new int[] {
-            2022179, 2022273, 2022282
+            2000005
         };
     }
 
